@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'djapps.tags',
     'djapps.links',
+    'djapps.events',
 )
 
 # Tags application.
@@ -64,3 +65,6 @@ STYLE_URL = MEDIA_URL + 'tags/'
 # Skip <h1>, I'll use on titles
 RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
 
+ABSOLUTE_URL_OVERRIDES = {
+    'events.event': lambda o: '/events/%s/%s/' % (o.startdate.strftime('%Y/%m/%d').lower(), o.id) ,
+}

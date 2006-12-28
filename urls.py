@@ -6,6 +6,7 @@ urlpatterns = patterns('',
     (r'^admin/', include('django.contrib.admin.urls')),
     #
     (r'^links/', include('djapps.links.urls')),
+    (r'^events/', include('djapps.events.urls')),
 )
 
 
