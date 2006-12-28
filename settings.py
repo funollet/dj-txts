@@ -54,8 +54,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'uecweb.tags',
+    'djapps.tags',
+    'djapps.links',
 )
 
 # Tags application.
 STYLE_URL = MEDIA_URL + 'tags/'
+
+# Skip <h1>, I'll use on titles
+RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
+

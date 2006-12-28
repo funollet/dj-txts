@@ -4,6 +4,8 @@ from django.conf import settings
 urlpatterns = patterns('',
     (r'^r/', include('django.conf.urls.shortcut')),
     (r'^admin/', include('django.contrib.admin.urls')),
+    #
+    (r'^links/', include('djapps.links.urls')),
 )
 
 
