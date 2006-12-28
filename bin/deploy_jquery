@@ -1,0 +1,6 @@
+#!/bin/bash
+# deploy_jquery
+
+URL='http://jquery.com/src/jquery-latest.pack.js'
+
+wget $URL -O media/js/jquery.pack.js
