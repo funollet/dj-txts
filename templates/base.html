@@ -1,0 +1,42 @@
+{% load i18n %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+{% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> {% endblock %}
+{% block title %} <title>{% trans "Django Apps" %}</title> {% endblock %}
+{% block style %} <link href="/media/css/base.css" rel="stylesheet" type="text/css" /> {% endblock %}
+{% block script %}{% endblock %}
+</head>
+
+
+
+{% block body-opentag %}<body>{% endblock %}
+
+{% block topbar %}
+<div id="header">
+ <div class="menu-horit"></div>
+ <div class="logo"><a href="{{ site_url }}">UEC Gracia</a></div>
+</div>
+{% endblock %}
+
+<div id="container">
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+</div>
+
+{% block sidebar %}
+<div id="sidebar">
+ <div class="menu-vert">
+ </div>
+</div>
+{% endblock %}
+
+{% block bottombar %}
+<div class="clearing">&nbsp;</div>
+<div id="footer"></div> 
+{% endblock %}
+
+</body></html>
