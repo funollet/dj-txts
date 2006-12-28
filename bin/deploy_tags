@@ -1,0 +1,44 @@
+#!/bin/bash -x
+# deploy_tags
+
+# Customize.
+DOWNL_URL='http://softwaremaniacs.org/media/soft/tags/tags.zip'
+APPL_DIR='tags'     # Application will live here.
+MEDIA_ROOT='../media'
+
+mkdir $APPL_DIR
+cd $APPL_DIR
+wget $DOWNL_URL     # Download.
+unzip *.zip         # Extract.
+
+# cleanup
+rm *.txt *.html *.zip style/demo.css
+
+# Put JavaScript files on your media directory.
+if [ ! -d $MEDIA_ROOT/js ] ; then
+    mkdir -p $MEDIA_ROOT/js
+fi
+mv js/* $MEDIA_ROOT/js/
+rmdir js
+
+# Put CSS files on your media directory.
+if [ ! -d $MEDIA_ROOT/css ] ; then
+    mkdir -p $MEDIA_ROOT/css
+fi
+mv style/tags.css $MEDIA_ROOT/css/
+
+# Put graphic files on your media directory.
+if [ ! -d $MEDIA_ROOT/img ] ; then
+    mkdir -p $MEDIA_ROOT/tags
+fi
+mv style/*png $MEDIA_ROOT/tags
+rmdir style
+
+# Informative message.
+cat <<.
+Deployment finished.
+Remember to run './manage.py syncdb' after modifying your settings:
+    INSTALLED_APPS = (..., 'yourproject.tags', )
+    STYLE_URL = '/your/media/tags/'
+.
+
