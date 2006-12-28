@@ -1,5 +1,5 @@
 # Django settings for uecweb project.
-
+from os.path import join
 from settings_local import *
 
 # Local time zone for this installation. All choices can be found here:
@@ -19,11 +19,11 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = PROJECT_ROOT + 'media/'
+MEDIA_ROOT = join(PROJECT_ROOT, 'media', '')
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
-MEDIA_URL = SITE_URL + 'media/'
+MEDIA_URL = join(SITE_URL, 'media', '')
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -45,7 +45,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_DIRS = (
-    PROJECT_ROOT + 'templates/',
+    join(PROJECT_ROOT, 'templates', ''),
 )
 
 INSTALLED_APPS = (
@@ -60,7 +60,7 @@ INSTALLED_APPS = (
 )
 
 # Tags application.
-STYLE_URL = MEDIA_URL + 'tags/'
+STYLE_URL = join(MEDIA_URL, 'tags', '')
 
 # Skip <h1>, I'll use on titles
 RESTRUCTUREDTEXT_FILTER_SETTINGS = {'initial_header_level': 2 }
