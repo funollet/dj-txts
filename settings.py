@@ -54,4 +54,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'uecweb.tags',
 )
+
+# Tags application.
+STYLE_URL = MEDIA_URL + 'tags/'
