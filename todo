@@ -1,3 +1,7 @@
+* (Txt) tweak admin: longer '#id_body textarea', float help at right
+* abstract hasn't blank=True. What if it's void?
+* URLs for tags should be 'tag/xxx' (microFormats dixit).
+* (Txt) Implement get_abstract()
 * Use field.ImageWithThumbnail()
 * (Event) views showing events as lists.
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
