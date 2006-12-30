@@ -1,10 +1,25 @@
-#!/bin/bash -x
+#!/bin/bash
 # deploy_tags
+#   Install TagsField application in a Django project directory.
+#   Install CSS, JS and PNG files in MEDIA_ROOT.
+#
+# Jordi Funollet <jordi.f@ati.es>  Fri, 29 Dec 2006 17:19:41 +0100
+#
+# The script assumes it will be run from the project root directory
+# and that the MEDIA_ROOT directory looks like this (or it will):
+#    media/
+#    |-- css
+#    |-- img
+#    |-- js
+#    `-- tags
 
-# Customize.
+
+#### Customize if needed #######################################
 DOWNL_URL='http://softwaremaniacs.org/media/soft/tags/tags.zip'
 APPL_DIR='tags'     # Application will live here.
-MEDIA_ROOT='../media'
+MEDIA_ROOT='/home/jordif/djapps/media'
+################################################################
+
 
 mkdir $APPL_DIR
 cd $APPL_DIR
@@ -21,6 +36,8 @@ fi
 mv js/* $MEDIA_ROOT/js/
 rmdir js
 
+# Tweak CSS to display better on Django's admin.
+patch style/tags.css tags.css.patch
 # Put CSS files on your media directory.
 if [ ! -d $MEDIA_ROOT/css ] ; then
     mkdir -p $MEDIA_ROOT/css

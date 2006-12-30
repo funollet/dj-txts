@@ -1,0 +1,43 @@
+--- /tmp/tags/style/tags.css	2006-08-18 23:17:08.000000000 +0200
++++ media/css/tags.css	2006-12-30 15:51:27.000000000 +0100
+@@ -0,0 +1,40 @@
++.tag_widget li,
++.tag_widget p {
++  float:left;
++}
++
++.tag_widget input {
++  width:5em;
++}
++
++.tag_widget .output {
++  font-weight:bold;
++}
++
++
++.tag_widget ul {
++  padding:0; margin:0;
++}
++
++.tag_widget li {
++  list-style:none;
++  margin:0; padding:1px 1em 1px 0;
++}
++
++.tag_widget p {
++  margin:0; padding:1px;
++}
++
++.tag_widget .input img {
++  vertical-align:0;
++}
++
++* html .tag_widget .input img {
++  vertical-align:3px;
++}
++
++.tag_widget .output img,
++.tag_widget p img {
++  vertical-align:-2px;
++}
++
