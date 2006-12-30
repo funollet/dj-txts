@@ -59,6 +59,13 @@ INSTALLED_APPS = (
     'djapps.events',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'djapps.misc.context_processors.siteroot',
+)
+
 # Tags application.
 STYLE_URL = join(MEDIA_URL, 'tags', '')
 

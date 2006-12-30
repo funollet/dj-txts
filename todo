@@ -1,4 +1,3 @@
-* Use settings.SITE_ROOT
 * Use field.ImageWithThumbnail()
 * (Event) views showing events as lists.
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
