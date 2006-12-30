@@ -1,0 +1,10 @@
+* Use settings.SITE_ROOT
+* Use field.ImageWithThumbnail()
+* (Event) views showing events as lists.
+* Suggest to TagsField developper: why remove '-' from tag's norm_value?
+* If patch for django.contrib.admin.templatetags.admin_modify.include_admin_script
+  is accepted,
+      * modify templates/admin/*/change_form.html (only needs custom CSS)
+      * re-deploy tags appl
+      * use 'js' in Admin for Event and Link
+* Create bin/deploy_farbtastic script.
