@@ -4,6 +4,7 @@ from djapps.misc.markup import markup_help, parse_markup
 from djapps.tags.models import Tag
 from djapps.tags import fields
 
+
 ################################################################################
 
 STATUS_CHOICES = (
@@ -15,7 +16,7 @@ STATUS_CHOICES = (
 
 ################################################################################
 
-class TxtCategory (models.Model):
+class TxtSection (models.Model):
     name = models.CharField (_('name'), maxlength=200, )
     
     description= models.TextField (_('description'), editable=False,)
@@ -39,8 +40,8 @@ class TxtCategory (models.Model):
 
 
     class Meta:
-        verbose_name = _('txt category')
-        verbose_name_plural = _('txt categories')
+        verbose_name = _('txt section')
+        verbose_name_plural = _('txt sections')
         ordering = ['priority']
     class Admin:
         fields = (
@@ -57,7 +58,7 @@ class TxtCategory (models.Model):
 
     def save (self):
         parse_markup (self)
-        super(TxtCategory, self).save()
+        super(TxtSection, self).save()
 
     def get_absolute_url (self):
         pass
@@ -77,8 +78,8 @@ class Txt (models.Model):
         default='pbl',
         radio_admin=True,
         )
-    category = models.ForeignKey( TxtCategory,
-        verbose_name=_('category'),
+    section = models.ForeignKey( TxtSection,
+        verbose_name=_('section'),
     )
     
     name = models.CharField (_('name'), maxlength=200, )
@@ -96,9 +97,10 @@ class Txt (models.Model):
     )
 
     tags = fields.TagsField( Tag, blank = True, )
-    pub_date = models.DateTimeField (_('publication date'), auto_now=True,)
+    pub_date = models.DateTimeField (_('publication date'), )
+    last_modif = models.DateTimeField (_('last modification date'), auto_now=True,)
     permalink = models.SlugField (_('permalink'),
-        prepopulate_from = ('abstract',),
+        prepopulate_from = ('name',),
         unique = True,
         help_text = _('Easy-to-link name (good, if short, twice good).'),
     )
@@ -107,15 +109,15 @@ class Txt (models.Model):
     class Meta:
         verbose_name = _('txt')
         verbose_name_plural = _('txts')
-        order_with_respect_to = 'category'
+        order_with_respect_to = 'section'
         ordering = ['pub_date']
 
     class Admin:
         list_display = ('name', 'pub_date',)
-        list_filter = ('status', 'category',)
+        list_filter = ('status', 'section',)
         search_fields = ('name',)
         fields = (
-            (None, {'fields': (('name', 'category',),
+            (None, {'fields': (('name', 'section',),
                 'body_markup', 'tags',),}),
             (_('Abstract'), {'fields': ('abstract_markup',),
                 'classes': 'collapse',}),
