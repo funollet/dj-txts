@@ -1,13 +1,22 @@
-* (Txt) tweak admin: longer '#id_body textarea', float help at right
+* Suggest to TagsField developper: why remove '-' from tag's norm_value?
+* BUG: check if 'auto_now' is appropiate for every DateTimeField.
 * abstract hasn't blank=True. What if it's void?
 * URLs for tags should be 'tag/xxx' (microFormats dixit).
-* (Txt) Implement get_abstract()
-* Use field.ImageWithThumbnail()
 * (Event) views showing events as lists.
-* Suggest to TagsField developper: why remove '-' from tag's norm_value?
+* (Txt) Implement get_abstract()
+* bug: django.views.generic.archive_today doesn't respects month_format parameter
+
+* (Txt.views) avoid import exception when INDIVIDUAL_SECTIONS doesn't exist.
+* (Txt.views) decor every generic view
+* (Txt.urls) think on remaining patterns
+* (Txt.templates) implement al "individual" templates, and generic ones
+* (Txt) case usage: recursive sections?
+* (Txt) tweak admin: longer '#id_body textarea', float help at right
+
+* Create bin/deploy_farbtastic script.
+* Use field.ImageWithThumbnail()
 * If patch for django.contrib.admin.templatetags.admin_modify.include_admin_script
   is accepted,
       * modify templates/admin/*/change_form.html (only needs custom CSS)
       * re-deploy tags appl
       * use 'js' in Admin for Event and Link
-* Create bin/deploy_farbtastic script.
