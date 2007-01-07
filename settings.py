@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'djapps.links',
     'djapps.events',
     'djapps.txts',
+    'djapps.optics',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

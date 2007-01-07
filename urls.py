@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     #
     (r'^links/', include('djapps.links.urls')),
     (r'^events/', include('djapps.events.urls')),
+    (r'^optics/', 'djapps.optics.views.search_optics' ),
     (r'^', include('djapps.txts.urls')),
 )
 
