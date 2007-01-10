@@ -2,11 +2,21 @@
 {% load i18n admin_modify adminmedia %}
 {% block extrahead %}{{ block.super }}
 <script type="text/javascript" src="../../../jsi18n/"></script>
+<script type="text/javascript" src="{{ media_url }}js/jquery.pack.js"></script>
+<script type="text/javascript" src="{{ media_url }}js/form.js"></script>
+<script type="text/javascript" src="{{ media_url }}js/djadmin-preview.js"></script>
 {% for js in javascript_imports %}{% include_admin_script js %}{% endfor %}
 {% endblock %}
 {% block stylesheet %}{% admin_media_prefix %}css/forms.css{% endblock %}
 {% block extrastyle %}{{ block.super }}
 <link rel="stylesheet" type="text/css" href="{{ media_url }}css/tags.css" />
+<style type="text/css">
+#preview {
+    border: 1px solid blue;
+    margin: 1em 0; 
+}
+
+</style>
 {% endblock %}
 {% block coltype %}{% if ordered_objects %}colMS{% else %}colM{% endif %}{% endblock %}
 {% block bodyclass %}{{ opts.app_label }}-{{ opts.object_name.lower }} change-form{% endblock %}
@@ -21,11 +31,14 @@
 {% block content %}<div id="content-main">
 {% block object-tools %}
 {% if change %}{% if not is_popup %}
-  <ul class="object-tools"><li><a href="history/" class="historylink">{% trans "History" %}</a></li>
+  <ul class="object-tools">
+  <li><a id="button-preview" href="#">{% trans "Preview" %}</a></li>
+  <li><a href="history/" class="historylink">{% trans "History" %}</a></li>
   {% if has_absolute_url %}<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif%}
   </ul>
 {% endif %}{% endif %}
 {% endblock %}
+<div id="preview"></div>
 <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form">{% block form_top %}{% endblock %}
 <div>
 {% if is_popup %}<input type="hidden" name="_popup" value="1" />{% endif %}

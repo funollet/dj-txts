@@ -13,6 +13,7 @@ archive_dict = {
 date_dict = dict( archive_dict, month_format='%m', slug_field='permalink' )
 
 urlpatterns = patterns('djapps.txts.views',
+    (r'^txt-preview/$', 'preview',),
     #
     (r'^(?P<section>\w+)/$',
         'list_detail_object_list', info_dict,
