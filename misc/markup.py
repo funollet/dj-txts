@@ -105,14 +105,19 @@ class DjangoHTMLTranslator(html4css1.HTMLTranslator):
 
 
 
-# Callback functions for every parser, so we could automatically select this.
-# If you need a new parser, implement the function and add to this dictionary.
-parser_callbacks = {
-    'docutils': restructuredtext,
-    'markdown': markdown,
-    'textile': textile,
-}
-
+def parser(*args, **kwargs):
+    # Callback functions for every parser, so we could automatically select this.
+    # If you need a new parser, implement the function and add to this dictionary.
+    parser_callbacks = {
+        'docutils': restructuredtext,
+        'markdown': markdown,
+        'textile': textile,
+    }
+    
+    # Markup to use.
+    MARKUP = getattr(settings, 'MARKUP', 'docutils') 
+    return parser_callbacks[MARKUP](*args, **kwargs)
+    
 
 def parse_markup (obj):
     """Parses markup attributes and pre-saves as HTML.
@@ -124,11 +129,8 @@ def parse_markup (obj):
     ``obj``:              object to parse
     """
 
-    # Markup to use.
-    MARKUP = getattr(settings, 'MARKUP', 'docutils') 
     # Suffix for names of attributes containing markup.
     TAIL = getattr( settings, 'MARKUP_FIELD_TAIL', '_markup')
-    parse = parser_callbacks[MARKUP]
 
     def conditions (s):
         """Select non-hidden %s-ended strings""" % TAIL
@@ -139,6 +141,6 @@ def parse_markup (obj):
     for longname in markup_fields :
         shortname = longname[:-len(TAIL)]       # Example: longname = 'first_part_markup'
         markup_source = getattr(obj, longname)  # Example: shortname = 'first_part'
-        setattr(obj, shortname, parse(markup_source))
+        setattr(obj, shortname, parser(markup_source))
         # Example: self.first_part = parse (self.first_part_markup)
 
