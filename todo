@@ -1,12 +1,11 @@
+* Admin preview: @login_required
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
 * BUG: check if 'auto_now' is appropiate for every DateTimeField.
 * abstract hasn't blank=True. What if it's void?
-* URLs for tags should be 'tag/xxx' (microFormats dixit).
 * (Event) views showing events as lists.
 * (Txt) Implement get_abstract()
 * bug: django.views.generic.archive_today doesn't respects month_format parameter
 * (Txt.views) avoid import exception when INDIVIDUAL_SECTIONS doesn't exist.
-* (Txt.views) decorate every generic view
 * (Txt.urls) think on remaining patterns
 * (Txt.templates) implement al "individual" templates, and generic ones
 * (Txt) case usage: recursive sections?

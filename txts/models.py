@@ -140,4 +140,8 @@ class Txt (models.Model):
 
     def get_abstract (self):
         pass
+    
+    def get_absolute_url(self):
+        pass
+    
 
