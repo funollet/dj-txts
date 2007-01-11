@@ -5,14 +5,8 @@
 * (Event) views showing events as lists.
 * (Txt) Implement get_abstract()
 * bug: django.views.generic.archive_today doesn't respects month_format parameter
-* Implement Txt preview for admin:
-    - admin/change_form: <div id="preview">, load js
-    - js: capture admin form fields, submit, display result
-    - template: try to use admin's CSS; don't convert markup
-    - view: convert markup fields, remove raw fields
-    
 * (Txt.views) avoid import exception when INDIVIDUAL_SECTIONS doesn't exist.
-* (Txt.views) decor every generic view
+* (Txt.views) decorate every generic view
 * (Txt.urls) think on remaining patterns
 * (Txt.templates) implement al "individual" templates, and generic ones
 * (Txt) case usage: recursive sections?
@@ -25,3 +19,5 @@
       * modify templates/admin/*/change_form.html (only needs custom CSS)
       * re-deploy tags appl
       * use 'js' in Admin for Event and Link
+* Txt preview for admin: make it an appl ???
+

@@ -1,0 +1,8 @@
+#preview {
+    display: none ;
+    margin: 1em 0; 
+    background-color: #D6D9F7 ;
+}
+#preview-content {
+    border: 1px solid gray;
+}

@@ -34,8 +34,6 @@ def section_filter (func):
     and uses a custom template.
     """
 
-
-
     def filter_some_sections (*args, **k):
         
         # No section? Do nothing.
@@ -110,6 +108,7 @@ def date_based_object_detail (request, **kwargs):
 
 
 def preview (request):
+    """Renders a preview of some object; returns HTML wich will be inserted into Admin."""
     c = {}
     if request.has_key('name'): 
         c['name'] = request['name']
