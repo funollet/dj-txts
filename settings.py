@@ -1,4 +1,4 @@
-# Django settings for uecweb project.
+# -*- coding:utf-8 -*-
 from os.path import join
 from settings_local import *
 
