@@ -10,7 +10,7 @@ will be overwriten with '<app_label>/<section_name>_xxx.html' instead of '<app_l
 
 from django.views.generic import date_based, list_detail
 from django.conf import settings
-from djapps.misc.markup import parser
+from misc.markup import parser
 from django.shortcuts import render_to_response
 
 

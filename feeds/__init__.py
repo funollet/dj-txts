@@ -1,5 +1,5 @@
 from django.contrib.syndication.feeds import Feed
-from djapps.txts.models import Txt
+from txts.models import Txt
 from django.utils.feedgenerator import Atom1Feed
 
 

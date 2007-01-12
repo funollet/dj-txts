@@ -54,18 +54,18 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'djapps.tags',
-    'djapps.links',
-    'djapps.events',
-    'djapps.txts',
-    'djapps.optics',
+    'tags',
+    'links',
+    'events',
+    'txts',
+    'optics',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
-    'djapps.misc.context_processors.siteroot',
+    'misc.context_processors.siteroot',
 )
 
 ABSOLUTE_URL_OVERRIDES = {
