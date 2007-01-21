@@ -141,9 +141,6 @@ class Txt (models.Model):
     def __str__ (self):
         return self.name
 
-    def get_abstract (self):
-        pass
-    
     def get_absolute_url(self):
         pass
     

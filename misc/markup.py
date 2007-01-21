@@ -24,6 +24,7 @@ On your templates, just use the parsed and cached text.
 Something like {{ object.body }} gives you HTML.
 
 
+
 Optional settings
 -----------------
 
@@ -49,13 +50,17 @@ from docutils.writers import html4css1
 # Not really needed but it's usefull having this predefined to use on models
 # as help_text.
 markup_help = {
-    'markdown': _('Use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> Syntax'),
-    'textile':  _('Use <a href="http://daringfireball.net/projects/markdown/basics">Textile</a> Syntax'),
-    'docutils': _('''<pre>
+    'markdown': _('''<div class="markup_help">
+    Use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> Syntax</div>'''),
+    'textile':  _('''<div class="markup_help">
+    Use <a href="http://daringfireball.net/projects/markdown/basics">Textile</a> Syntax</div>'''),
+    'docutils': _('''
+    <div class="markup_help"><pre>
 `un link`_    *italica*    **negreta**    Titol     - un punt d'una llista
                                           -----     - segon punt
 .. _`un link`: http://www.google.com                 - llista indentada
-</pre>(Documentació completa de la <a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">sintaxis reST</a>).'''),
+</pre>(<a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">reST syntax</a>: documentation).
+    </div>'''),
 }
 
 

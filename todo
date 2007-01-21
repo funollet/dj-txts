@@ -1,23 +1,17 @@
-* BUG: check if 'auto_now' is appropiate for every DateTimeField.
-* BUG: django.views.generic.archive_today doesn't respect month_format parameter
-* abstract hasn't blank=True. What if it's void?
-* (Txt) Implement get_abstract()
-* (Txt.views) avoid import exception when INDIVIDUAL_SECTIONS doesn't exist.
-
-* Suggest to TagsField developper: why remove '-' from tag's norm_value?
-* (Event) views showing events as lists.
 * (Txt.urls) think on remaining patterns
-* (Txt.templates) implement all "individual" templates, and generic ones
 * (Txt) case usage: recursive sections?
-* (Txt) tweak admin: longer '#id_body textarea', float help at right
+* Suggest to TagsField developper: why remove '-' from tag's norm_value?
+* (Txt.templates) implement all "individual" templates, and generic ones
+* (Event) views showing events as lists.
 
 * Create bin/deploy_farbtastic script.
+* Implement LazyDateTime (as in django.db.models.LazyDate). Use as pub_date default
+  value. LazyDate fixes time at midnight, not now().
 * Use field.ImageWithThumbnail()
-* If patch for django.contrib.admin.templatetags.admin_modify.include_admin_script
-  is accepted,
-      * modify templates/admin/*/change_form.html (only needs custom CSS)
-      * re-deploy tags appl
-      * use 'js' in Admin for Event and Link
 * Txt preview for admin: make it an appl ???
-
 * {{ media_url }} returns a full url (http://...). I prefer an absolute url (/media/...)
+* BUG: django.views.generic.archive_today doesn't respect month_format parameter
+* (Txt) tweak admin: longer '#id_body textarea'.
+  Not easy: can't be done on change_form.html, probably implies customizing some
+  admin templatetag.
+* (Txt) tweak admin:  float markup_help at textarea's right. Why aligns to textarea bottom?
