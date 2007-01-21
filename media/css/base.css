@@ -1,3 +1,72 @@
+body {
+    margin: 0 0; 
+    background: #1d348d ;
+    color: black ;
+}
+
+/***********************************************************/
+
+#header { 
+    float: left ;
+    width: 100% ;
+    background: #1d348d ;
+    padding:0;
+}
+#header ul.nav-sections {
+    text-align: center ;
+    padding:0; margin: 0;
+}
+#header ul.nav-sections li {
+    display: inline ;
+    list-style-type: none ;
+    padding: 0 1.5em 0 1.5em ;
+}
+#header ul.nav-sections li a {
+    color: white ;
+    font-size: 1.5em ;
+}
+#header a.logo {
+    margin: 0; padding: 0;
+}
+
+/***********************************************************/
+
+#main {
+    background-color: #2c3964 ;
+    clear: both ;
+    margin:0 ;
+/*     line-height: 1.2em ; */
+}
+
+/***********************************************************/
+#content {
+    background-color: white ;
+    float: left ;
+    width: 80% ;
+    padding: .5em ;
+}
+/***********************************************************/
+#sidebar {
+    margin-left: 80%;
+}
+/***********************************************************/
+
+#footer {
+    clear: both ;
+    background: #1d348d ;
+    color: white ;
+    margin: 0; padding: 0;
+    border-top: 5px black solid ;
+}
+#footer ul {
+    margin: 0; padding: 0;
+}
+#footer ul.links-horiz li {
+    display: inline ;
+    list-style-type: none ;
+}
+/***********************************************************/
+
 ul#events-categories {
     margin-left: 0 ;
     padding-left: 0 ;

@@ -2,8 +2,17 @@
 
 {% block content %}
 
-{% for post in object_list %}
-    <p>{{ post.name }}</p>
+{% for entry in object_list %}
+    <div class="blog-list-entry">
+    <h1>{{ entry.name }}</h1>
+    {{ entry.body }}
+    <ul>
+        <li>{{ entry.pub_date }}</li>
+        <li>{{ entry.permalink }}</li>
+    </ul>
+
+    </div>
+    
 {% endfor %}
 
 {% endblock %}
