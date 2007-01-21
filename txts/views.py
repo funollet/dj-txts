@@ -12,6 +12,7 @@ from django.views.generic import date_based, list_detail
 from django.conf import settings
 from misc.markup import parser
 from django.shortcuts import render_to_response
+from django.contrib.auth.decorators import user_passes_test
 
 
 # Map wrapped function name to suffix that should be used
@@ -106,7 +107,7 @@ def date_based_object_detail (request, **kwargs):
 
 
 
-
+@user_passes_test(lambda u: u.is_staff)
 def preview (request):
     """Renders a preview of some object; returns HTML wich will be inserted into Admin."""
     c = {}
