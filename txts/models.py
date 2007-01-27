@@ -46,6 +46,7 @@ class TxtSection (models.Model):
         verbose_name_plural = _('txt sections')
         ordering = ['priority']
     class Admin:
+        list_display = ['name', 'priority']
         fields = (
             (None, {'fields': ('name', 'description_markup', 'priority',),}),
             (_('Advanced'), {
@@ -116,7 +117,7 @@ class Txt (models.Model):
         ordering = ['pub_date']
 
     class Admin:
-        list_display = ('name', 'pub_date',)
+        list_display = ('name', 'section', 'pub_date',)
         list_filter = ('status', 'section',)
         search_fields = ('name',)
         fields = (
