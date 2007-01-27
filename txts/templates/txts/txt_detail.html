@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ object.name }}</h1>
+
+{{ object.body }}
+
+<ul>
+    <li>{{ object.pub_date }}</li>
+    <li>{{ object.permalink }}</li>
+</ul>
+{% endblock %}
