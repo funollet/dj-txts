@@ -3,6 +3,7 @@
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
 * (Txt.templates) implement all "individual" templates, and generic ones
 * (Event) views showing events as lists.
+* Show on admin_list: priority and section.
 
 * Create bin/deploy_farbtastic script.
 * Implement LazyDateTime (as in django.db.models.LazyDate). Use as pub_date default
