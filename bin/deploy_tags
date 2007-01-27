@@ -17,9 +17,15 @@
 #### Customize if needed #######################################
 DOWNL_URL='http://softwaremaniacs.org/media/soft/tags/tags.zip'
 APPL_DIR='tags'     # Application will live here.
-MEDIA_ROOT='/home/jordif/djapps/media'
 ################################################################
 
+MEDIA_ROOT="`pwd`/media"
+
+if [ ! -f ../tags.css.patch ]
+    echo "File not found: tags.css.patch."
+    echo "Please put it on your project's root directory and try again."
+    exit 1
+fi
 
 mkdir $APPL_DIR
 cd $APPL_DIR
@@ -37,7 +43,7 @@ mv js/* $MEDIA_ROOT/js/
 rmdir js
 
 # Tweak CSS to display better on Django's admin.
-patch style/tags.css tags.css.patch
+patch style/tags.css ../tags.css.patch
 # Put CSS files on your media directory.
 if [ ! -d $MEDIA_ROOT/css ] ; then
     mkdir -p $MEDIA_ROOT/css
@@ -45,7 +51,7 @@ fi
 mv style/tags.css $MEDIA_ROOT/css/
 
 # Put graphic files on your media directory.
-if [ ! -d $MEDIA_ROOT/img ] ; then
+if [ ! -d $MEDIA_ROOT/tags ] ; then
     mkdir -p $MEDIA_ROOT/tags
 fi
 mv style/*png $MEDIA_ROOT/tags
