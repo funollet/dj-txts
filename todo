@@ -1,18 +1,30 @@
-* (Txt.urls) think on remaining patterns
-* (Txt) case usage: recursive sections?
-* Suggest to TagsField developper: why remove '-' from tag's norm_value?
-* (Txt.templates) implement all "individual" templates, and generic ones
-* (Event) views showing events as lists.
-* Show on admin_list: priority and section.
+* (Txt category) add a 'hide' field.
+* (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
+* (Txts) add "author" field
+* (Txts) add "comments_closed" field
+* (Txt) admin isn't sorting by pub_date
 
-* Create bin/deploy_farbtastic script.
-* Implement LazyDateTime (as in django.db.models.LazyDate). Use as pub_date default
-  value. LazyDate fixes time at midnight, not now().
-* Use field.ImageWithThumbnail()
-* Txt preview for admin: make it an appl ???
-* {{ media_url }} returns a full url (http://...). I prefer an absolute url (/media/...)
-* BUG: django.views.generic.archive_today doesn't respect month_format parameter
+* (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten by project 
+* Tag list on sidebar (needs templatetag).
+* Pagination in blog list templates.
+* Date-based navigation.
+* (Feeds) add author
+* (Feeds) OpenKnowledgeFeed is slooooow ?
+* (Link category) add a 'hide' field so we could filter this when showing "all" sections.
+  Usefull for things like blogrolls. Does it makes sense having a menu builder application?
+* find a better way than hack (patch django) for fixing custom 'rows' value in admin textarea
 * (Txt) tweak admin: longer '#id_body textarea'.
   Not easy: can't be done on change_form.html, probably implies customizing some
   admin templatetag.
+
+
+* Suggest to TagsField developper: why remove '-' from tag's norm_value?
+* (Event) views showing events as lists.
+* Implement LazyDateTime (as in django.db.models.LazyDate). Use as pub_date default
+  value. LazyDate fixes time at midnight, not now().
+
+* Create bin/deploy_farbtastic script.
+* Use field.ImageWithThumbnail()
+* Txt preview for admin: make it an appl ???
+* BUG: django.views.generic.archive_today doesn't respect month_format parameter
 * (Txt) tweak admin:  float markup_help at textarea's right. Why aligns to textarea bottom?
