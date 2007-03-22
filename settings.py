@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'events',
     'txts',
     'optics',
+    'photostream',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

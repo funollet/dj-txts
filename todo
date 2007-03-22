@@ -1,8 +1,10 @@
-* (Txt category) add a 'hide' field.
+- (Txts) add "author" field
+- (Txts) add "comments_closed" field
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
-* (Txts) add "author" field
-* (Txts) add "comments_closed" field
-* (Txt) admin isn't sorting by pub_date
+* (Txts) admin isn't sorting by pub_date
+* (Txts) add categories ???
+* photostream_update script: doesn't refresh modified fields (title, modif_date).
+* remove #photo23-content from CSS and 'home_list.html'
 
 * (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten by project 
 * Tag list on sidebar (needs templatetag).
@@ -16,7 +18,7 @@
 * (Txt) tweak admin: longer '#id_body textarea'.
   Not easy: can't be done on change_form.html, probably implies customizing some
   admin templatetag.
-
+* Use txts.comments_closed in views/templates.
 
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
 * (Event) views showing events as lists.
