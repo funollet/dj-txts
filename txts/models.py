@@ -23,7 +23,7 @@ class TxtSection (models.Model):
     description_markup = models.TextField (_('description'), 
         blank=True,
         help_text = markup_help['docutils'],
-        )
+    )
     
     priority = models.PositiveIntegerField (_('priority'),
         unique = True,
@@ -34,7 +34,7 @@ class TxtSection (models.Model):
         unique=True,
         prepopulate_from=('name',),
         help_text = _('Easy-to-link name (good, if short, twice good).'),
-        )
+    )
 
     pub_date = models.DateTimeField (_('publication date'), default=models.LazyDate(),)
     modif_date = models.DateTimeField (_('modification date'), auto_now=True,)
@@ -108,7 +108,14 @@ class Txt (models.Model):
         unique = True,
         help_text = _('Easy-to-link name (good, if short, twice good).'),
     )
-
+    author_name = models.CharField ( _("Author's name"), 
+        blank=True,
+        maxlength=75,
+    )
+    comments_closed = models.BooleanField ( _('Comments closed'),
+        default = False,
+        help_text = _('Closes comments for this post.'),
+    )
 
     class Meta:
         verbose_name = _('txt')
@@ -126,7 +133,7 @@ class Txt (models.Model):
             (_('Abstract'), {'fields': ('abstract_markup',),
                 'classes': 'collapse',}),
             (None, {'fields': ('status',), }),
-            (_('Advanced'), {'fields': ('permalink','pub_date',),
+            (_('Advanced'), {'fields': ('permalink', 'pub_date', 'author_name', 'comments_closed',),
                 'classes': 'collapse',}),
         )
 
