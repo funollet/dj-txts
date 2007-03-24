@@ -1,6 +1,6 @@
 
 from django import template
-from terraquis.photostream.models import PhotoStream, PhotoStreamItem
+from photostream.models import PhotoStream, PhotoStreamItem
 
 
 class PhotoStreamLastNode (template.Node):
