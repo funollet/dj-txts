@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table id="photostream">
+{% for ph in object_list %}
+    {% cycle <tr>,<!---->,,<!----> %}
+        <td><img class="photostream" src="{{ ph.get_last.mblog }}" /></td>
+    {% cycle <!---->,<!---->,</tr> %}
+    {% if forloop.last %}{% if forloop.counter|divisibleby:"2" %}{% else %}
+        </tr>
+    {% endif %}{% endif %}
+
+{% endfor %}
+</table>
+{% endblock %}

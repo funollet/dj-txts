@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     (r'^links/', include('links.urls')),
     (r'^events/', include('events.urls')),
     (r'^optics/', 'optics.views.search_optics' ),
+    (r'^photostream/', include('photostream.urls')),
     (r'^', include('txts.urls')),
 )
 

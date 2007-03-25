@@ -38,6 +38,8 @@ class PhotoStream(models.Model):
     def __str__(self):
         return self.nick
 
+    def get_last(self):
+        return self.photostreamitem_set.latest('modif_date')
 
 
 class PhotoStreamItem(models.Model):
@@ -53,4 +55,7 @@ class PhotoStreamItem(models.Model):
 
     def __str__(self):
         return self.link
+    
+    def mblog (self):
+        return '/'.join([self.guid, 'mblog'])
     
