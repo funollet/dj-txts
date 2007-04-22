@@ -2,6 +2,7 @@
 
 * remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
+  Rename to 'easylink'.
 * (Txts) admin isn't sorting by pub_date
 * (Txts) add categories ???
 * update_photoplanet script: doesn't refresh modified fields (title, modif_date).
