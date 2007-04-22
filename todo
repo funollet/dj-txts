@@ -1,7 +1,5 @@
 * put cronjob for photoplanet on Textdrive
 
-* (Link, Link category) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
-
 * remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
 * (Txts) admin isn't sorting by pub_date
