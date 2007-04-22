@@ -1,19 +1,22 @@
-- (Txts) add "author" field
-- (Txts) add "comments_closed" field
+* put cronjob for photoplanet on Textdrive
+
+* (Link category) add a 'hide' field so we could filter this when showing "all" sections.
+  Usefull for things like blogrolls. Does it makes sense having a menu builder application?
+* (Link, Link category) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
+* Could templates/admin/app/ reside under app/templates/admin/app/ ? (Easier to deploy).
+
+* remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
 * (Txts) admin isn't sorting by pub_date
 * (Txts) add categories ???
-* photostream_update script: doesn't refresh modified fields (title, modif_date).
-* remove #photo23-content from CSS and 'home_list.html'
+* update_photoplanet script: doesn't refresh modified fields (title, modif_date).
 
-* (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten by project 
+* (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten per-project 
 * Tag list on sidebar (needs templatetag).
 * Pagination in blog list templates.
 * Date-based navigation.
 * (Feeds) add author
 * (Feeds) OpenKnowledgeFeed is slooooow ?
-* (Link category) add a 'hide' field so we could filter this when showing "all" sections.
-  Usefull for things like blogrolls. Does it makes sense having a menu builder application?
 * find a better way than hack (patch django) for fixing custom 'rows' value in admin textarea
 * (Txt) tweak admin: longer '#id_body textarea'.
   Not easy: can't be done on change_form.html, probably implies customizing some
@@ -23,7 +26,7 @@
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
 * (Event) views showing events as lists.
 * Implement LazyDateTime (as in django.db.models.LazyDate). Use as pub_date default
-  value. LazyDate fixes time at midnight, not now().
+  value. LazyDate returns time at midnight, not now().
 
 * Create bin/deploy_farbtastic script.
 * Use field.ImageWithThumbnail()
