@@ -1,9 +1,6 @@
 * put cronjob for photoplanet on Textdrive
 
-* (Link category) add a 'hide' field so we could filter this when showing "all" sections.
-  Usefull for things like blogrolls. Does it makes sense having a menu builder application?
 * (Link, Link category) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
-* Could templates/admin/app/ reside under app/templates/admin/app/ ? (Easier to deploy).
 
 * remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
