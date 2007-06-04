@@ -68,7 +68,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
-    'misc.context_processors.siteroot',
+    'django.core.context_processors.media',
 )
 
 ABSOLUTE_URL_OVERRIDES = {
