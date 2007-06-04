@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     'txts',
     'optics',
     'photoplanet',
+    'misc',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

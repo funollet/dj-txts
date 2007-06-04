@@ -19,4 +19,4 @@ def parse_markup_fields (request):
         if '_markup' in k and request[k] != '':
             parsed_fields.append ({ 'name': k[:-7], 'data': parser(v) })
     
-    return render_to_response ('txts/preview.html', {'objects': parsed_fields})
+    return render_to_response ('misc/preview.html', {'objects': parsed_fields})
