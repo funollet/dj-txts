@@ -43,6 +43,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
 )
+APPEND_SLASH = True
 
 TEMPLATE_DIRS = (
     join(PROJECT_ROOT, 'templates', ''),

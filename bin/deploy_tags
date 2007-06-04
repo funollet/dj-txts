@@ -21,7 +21,7 @@ APPL_DIR='tags'     # Application will live here.
 
 MEDIA_ROOT="`pwd`/media"
 
-if [ ! -f ../tags.css.patch ]
+if [ ! -f bin/tags.css.patch ] ; then
     echo "File not found: tags.css.patch."
     echo "Please put it on your project's root directory and try again."
     exit 1
@@ -43,7 +43,7 @@ mv js/* $MEDIA_ROOT/js/
 rmdir js
 
 # Tweak CSS to display better on Django's admin.
-patch style/tags.css ../tags.css.patch
+patch style/tags.css ../bin/tags.css.patch
 # Put CSS files on your media directory.
 if [ ! -d $MEDIA_ROOT/css ] ; then
     mkdir -p $MEDIA_ROOT/css

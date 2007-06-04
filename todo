@@ -1,4 +1,3 @@
-* put cronjob for photoplanet on Textdrive
 
 * remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
@@ -7,6 +6,12 @@
 * (Txts) add categories ???
 * update_photoplanet script: doesn't refresh modified fields (title, modif_date).
 
+* rewrite for django-trunk
+* Calendar: could we reuse this? http://www.djangosnippets.org/snippets/129/
+* Tags: migrate to django-tags application
+* use 'url' templatetag and 'permalink' on 'get_absolute_url'
+
+* Farbtastic upgraded? If so, update Farbtastic and jQuery.
 * (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten per-project 
 * Tag list on sidebar (needs templatetag).
 * Pagination in blog list templates.
@@ -14,9 +19,6 @@
 * (Feeds) add author
 * (Feeds) OpenKnowledgeFeed is slooooow ?
 * find a better way than hack (patch django) for fixing custom 'rows' value in admin textarea
-* (Txt) tweak admin: longer '#id_body textarea'.
-  Not easy: can't be done on change_form.html, probably implies customizing some
-  admin templatetag.
 * Use txts.comments_closed in views/templates.
 
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
