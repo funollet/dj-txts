@@ -1,4 +1,4 @@
-* rewrite for django-trunk
+* convert FloatField to DecimalField
 * remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
   Rename to 'easylink'.
@@ -22,11 +22,8 @@
 
 * Suggest to TagsField developper: why remove '-' from tag's norm_value?
 * (Event) views showing events as lists.
-* Implement LazyDateTime (as in django.db.models.LazyDate). Use as pub_date default
-  value. LazyDate returns time at midnight, not now().
 
 * Create bin/deploy_farbtastic script.
 * Use field.ImageWithThumbnail()
-* Txt preview for admin: make it an appl ???
 * BUG: django.views.generic.archive_today doesn't respect month_format parameter
 * (Txt) tweak admin:  float markup_help at textarea's right. Why aligns to textarea bottom?

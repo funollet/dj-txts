@@ -3,6 +3,7 @@ from django.db import models
 from misc.markup import markup_help, parse_markup
 from tags.models import Tag
 from tags import fields
+from datetime import datetime
 
 
 ################################################################################
@@ -36,7 +37,7 @@ class TxtSection (models.Model):
         help_text = _('Easy-to-link name (good, if short, twice good).'),
     )
 
-    pub_date = models.DateTimeField (_('publication date'), default=models.LazyDate(),)
+    pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
     modif_date = models.DateTimeField (_('modification date'), auto_now=True,)
     crea_date = models.DateTimeField (_('creation date'), auto_now_add=True,)
 
@@ -100,7 +101,7 @@ class Txt (models.Model):
     )
 
     tags = fields.TagsField( Tag, blank = True, )
-    pub_date = models.DateTimeField (_('publication date'), default=models.LazyDate(),)
+    pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
     modif_date = models.DateTimeField (_('modification date'), auto_now=True,)
     crea_date = models.DateTimeField (_('creation date'), auto_now_add=True,)
     permalink = models.SlugField (_('permalink'),
