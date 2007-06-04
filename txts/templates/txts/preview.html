@@ -1,9 +1,4 @@
-<h1>{{ name }}</h1>
-{% if abstract %}
-    <h2>################### Abstract</h2>
-    <p>{{ abstract }}</p>
-    <hr>
-{% endif %}
-<h2>################### Body</h2>
-<p>{{ body }}</p>
-
+{% for field in objects %}
+<h2>[ {{ field.name }} ]</h2>
+{{ field.data }}
+{% endfor %}
