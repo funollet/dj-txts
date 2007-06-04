@@ -128,6 +128,7 @@ class Txt (models.Model):
         list_display = ('name', 'section', 'pub_date',)
         list_filter = ('status', 'section',)
         search_fields = ('name',)
+        ordering = ['-pub_date']
         fields = (
             (None, {'fields': (('name', 'section',),
                 'body_markup', 'tags',),}),

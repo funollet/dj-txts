@@ -1,7 +1,6 @@
 * remove #photo23-content from CSS and 'home_list.html'
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
   Rename to 'easylink'.
-* (Txts) admin isn't sorting by pub_date
 * (Txts) add categories ???
 
 * use 'url' templatetag and 'permalink' on 'get_absolute_url'
@@ -10,6 +9,7 @@
 * update_photoplanet script: doesn't refresh modified fields (title, modif_date).
 * Calendar: could we reuse this? http://www.djangosnippets.org/snippets/129/
 
+* preview doesn't respects fields order (because they are on a dictionary)
 * (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten per-project 
 * Tag list on sidebar (needs templatetag).
 * Pagination in blog list templates.
