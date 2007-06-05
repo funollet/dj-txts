@@ -38,8 +38,8 @@ class TxtSection (models.Model):
     )
 
     pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
-    modif_date = models.DateTimeField (_('modification date'), auto_now=True,)
-    crea_date = models.DateTimeField (_('creation date'), auto_now_add=True,)
+    modif_date = models.DateTimeField (_('modification date'), default=datetime.now, editable=False,)
+    crea_date = models.DateTimeField (_('creation date'), editable=False,)
 
 
     class Meta:
@@ -62,6 +62,8 @@ class TxtSection (models.Model):
 
     def save (self):
         parse_markup (self)
+        if not self.id:
+            self.crea_date = datetime.now()
         super(TxtSection, self).save()
 
     def get_absolute_url (self):
@@ -102,8 +104,8 @@ class Txt (models.Model):
 
     tags = fields.TagsField( Tag, blank = True, )
     pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
-    modif_date = models.DateTimeField (_('modification date'), auto_now=True,)
-    crea_date = models.DateTimeField (_('creation date'), auto_now_add=True,)
+    modif_date = models.DateTimeField (_('modification date'), default=datetime.now, editable=False)
+    crea_date = models.DateTimeField (_('creation date'), editable=False,)
     permalink = models.SlugField (_('permalink'),
         prepopulate_from = ('name',),
         unique = True,
@@ -146,6 +148,8 @@ class Txt (models.Model):
     
     def save (self):
         parse_markup (self)
+        if not self.id:
+            self.crea_date = datetime.now()
         super(Txt, self).save()
 
     def __str__ (self):
