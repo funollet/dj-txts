@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'tags',
+    'tagging',
     'links',
     'events',
     'txts',
