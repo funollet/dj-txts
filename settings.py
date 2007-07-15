@@ -47,6 +47,7 @@ APPEND_SLASH = True
 
 TEMPLATE_DIRS = (
     join(PROJECT_ROOT, 'templates', ''),
+    join(PROJECT_ROOT, 'templates-global', ''),
 )
 
 INSTALLED_APPS = (
