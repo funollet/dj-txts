@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from txts.feeds import *
+from feeds import *
 
 feeds = {
     'blog': BlogEntries,
