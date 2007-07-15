@@ -1,10 +1,28 @@
-* remove #photo23-content from CSS and 'home_list.html'
-* Tags: migrate Txts to django-tags application
-* (RETHINK!!!) feeds: move to a directory out of every app; should be overwriten per-project 
+* 'update_photoplanet.py' not working on TextDrive
+
+* terraquis still using django-r4463
+  * 
 * (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
   Rename to 'easylink'.
+  * terraquis: script to migrate actual data
+* Tags: migrate Txts to django-tags application
+  * terraquis: script to migrate actual content (tags -> tagging)
 * (Txts) add categories ???
+* uecweb: deploy Txts
+* uecweb: deploy with mysql/postgres
+* test with django-trunk post unicode-branch
+  * uecweb @ textdrive: solves the fcgi bug?
 
+
+* (RETHINK!!!) feeds: move to a directory out of every app.
+  * should be overwriten per-project 
+  * Common feeds on projects root and per-appl on each directory? Easy to distribute.
+* remove #photo23-content from CSS and 'home_list.html'
+* build menus application (uecweb needs it); some lieder apps can be used
+* build/choose media uploading application
+
+* (PhotoPlanet) admin: url auto-completion
+* (PhotoPlanet) photo links to photo ('/mblog'), not to "page photo"
 * use 'url' templatetag and 'permalink' on 'get_absolute_url'
 * Farbtastic upgraded? If so, update Farbtastic and jQuery.
 * update_photoplanet script: doesn't refresh modified fields (title, modif_date).
@@ -24,3 +42,19 @@
 * Use field.ImageWithThumbnail()
 * BUG: django.views.generic.archive_today doesn't respect month_format parameter
 * (Txt) tweak admin:  float markup_help at textarea's right. Why aligns to textarea bottom?
+
+
+
+Deploying djapps to other projects
+----------------------------------
+
+'svn co' the applications. Manually install 'media/' files (jquery,...).
+
+Must rethink 'templates/'. Some templates (global and admin-related) are on 'djapps' svn,
+but can't do 'svn co' because root 'templates/' dir is on site-project svn.
+
+Meanwhile, sync it manually.
+
+  bean$ rsync -avC ~/code/djapps/templates/{admin,base.html} .
+
+Take an eye on the Google SoC django-package.
