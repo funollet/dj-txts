@@ -36,7 +36,7 @@ def section_filter (func):
         # No section? Do nothing.
         if k.has_key('section'):
             # Add filter to queryset, get only this section items.
-            k['queryset'] = k['queryset'].filter( section__permalink = k['section'] )
+            k['queryset'] = k['queryset'].filter( section__easylink = k['section'] )
             # Should this section have an special template?
             if k['section'] in cust_tmpl:
                 # Use a custom template name for this section.

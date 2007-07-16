@@ -1,10 +1,5 @@
 * 'update_photoplanet.py' not working on TextDrive
 
-* terraquis still using django-r4463
-  * 
-* (Txts) 'permalink' is a confusing denomination; get_absolute_url *is* the permalink.
-  Rename to 'easylink'.
-  * terraquis: script to migrate actual data
 * Tags: migrate Txts to django-tags application
   * terraquis: script to migrate actual content (tags -> tagging)
 * (Txts) add categories ???
@@ -14,9 +9,6 @@
   * uecweb @ textdrive: solves the fcgi bug?
 
 
-* (RETHINK!!!) feeds: move to a directory out of every app.
-  * should be overwriten per-project 
-  * Common feeds on projects root and per-appl on each directory? Easy to distribute.
 * remove #photo23-content from CSS and 'home_list.html'
 * build menus application (uecweb needs it); some lieder apps can be used
 * build/choose media uploading application
