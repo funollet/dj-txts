@@ -17,6 +17,63 @@ STATUS_CHOICES = (
 
 ################################################################################
 
+class TxtCategory (models.Model):
+
+    name = models.CharField (_('name'), maxlength=200, )
+    
+    description= models.TextField (_('description'), editable=False,)
+    description_markup = models.TextField (_('description'), 
+        blank=True,
+        help_text = markup_help['docutils'],
+    )
+    
+    priority = models.PositiveIntegerField (_('priority'),
+        unique = True,
+        help_text = _('Categories will be sorted by this field.')
+    )
+    
+    easyname = models.SlugField (_('easyname'),
+        unique=True,
+        prepopulate_from=('name',),
+        help_text = _('Easy-to-link name (good, if short, twice good).'),
+    )
+    
+    pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
+    modif_date = models.DateTimeField (_('modification date'), default=datetime.now, editable=False,)
+    crea_date = models.DateTimeField (_('creation date'), editable=False,)
+
+    hidden = models.BooleanField(_('hidden category'), default=False,
+        help_text = 'Exclude this category from listings.',
+    )
+
+    class Meta:
+        verbose_name = _('txt category')
+        verbose_name_plural = _('txt categories')
+        ordering = ['priority']
+    #class Admin:
+        #fields = (
+            #(None, {'fields': ('name', 'description_markup', 'priority',),}),
+            #(_('Advanced'), {
+                #'fields': ('easyname', 'pub_date', 'hidden'), 
+                #'classes': 'collapse',
+            #} ),
+        #)
+        #list_display = ('name', 'priority',)
+
+    
+    def __str__ (self):
+        return self.name
+
+    def save (self):
+        parse_markup (self)
+        if not self.id:
+            self.crea_date = datetime.now()
+        super(LinkCategory, self).save()
+
+    #def get_absolute_url (self):
+        #pass
+
+
 class TxtSection (models.Model):
     name = models.CharField (_('name'), maxlength=200, )
     
@@ -86,6 +143,11 @@ class Txt (models.Model):
         )
     section = models.ForeignKey( TxtSection,
         verbose_name=_('section'),
+    )
+    
+    category = models.ForeignKey( TxtCategory,
+        verbose_name=_('category'),
+        blank = True, null=True,
     )
     
     name = models.CharField (_('name'), maxlength=200, )
