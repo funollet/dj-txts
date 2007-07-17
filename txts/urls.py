@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 from django.conf.urls.defaults import *
 from txts.models import Txt, TxtSection
-from tags.models import Tag
 
 info_dict = { 
     'queryset': Txt.public.all().order_by('-pub_date'), 
@@ -13,16 +12,10 @@ archive_dict = {
 }
 date_dict = dict( archive_dict, month_format='%m', slug_field='easyname' )
 
-info_tags = { 
-    'queryset': Tag.objects.all(),
-}
-
 
 urlpatterns = []
 urlpatterns += patterns('txts.views',
     (r'^txt-preview/$', 'preview',),
-    #
-    (r'^tags/(?P<tag>.*)/$', 'tag_list', info_dict),
     #
     (r'^(?P<section>[\-\w]+)/$',
         'list_detail_object_list', info_dict,

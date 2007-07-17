@@ -1,6 +1,5 @@
 * 'update_photoplanet.py' not working on TextDrive
 
-* TxtCategory has field 'easylink'; must be 'easyname'!!!
 * Tags: migrate Txts to django-tags application
   * terraquis: script to migrate actual content (tags -> tagging)
 * uecweb: deploy Txts

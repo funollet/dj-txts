@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 from misc.markup import markup_help, parse_markup
-from tags.models import Tag
-from tags import fields
+from tagging.fields import TagField
 from datetime import datetime
 
 
@@ -164,7 +163,7 @@ class Txt (models.Model):
         help_text = markup_help['docutils'],
     )
 
-    tags = fields.TagsField( Tag, blank = True, )
+    tags = TagField()
     pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
     modif_date = models.DateTimeField (_('modification date'), default=datetime.now, editable=False)
     crea_date = models.DateTimeField (_('creation date'), editable=False,)
