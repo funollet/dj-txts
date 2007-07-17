@@ -11,7 +11,7 @@ archive_dict = {
     'date_field': 'pub_date',
     'queryset': Txt.public.all().order_by('-pub_date'),
 }
-date_dict = dict( archive_dict, month_format='%m', slug_field='easylink' )
+date_dict = dict( archive_dict, month_format='%m', slug_field='easyname' )
 
 info_tags = { 
     'queryset': Tag.objects.all(),
@@ -28,9 +28,9 @@ urlpatterns += patterns('txts.views',
         'list_detail_object_list', info_dict,
     ),
     (r'^(?P<section>[\-\w]+)/(?P<slug>[\-\w]+)/$',
-        'list_detail_object_detail', dict(info_dict, slug_field='easylink'),
+        'list_detail_object_detail', dict(info_dict, slug_field='easyname'),
     ),
-    # <section>/<year>/<month>/<day>/<easylink>/
+    # <section>/<year>/<month>/<day>/<easyname>/
     (r'^(?P<section>[\-\w]+)/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[\-\w]+)/$',
         'date_based_object_detail', date_dict,
     ),
@@ -38,7 +38,7 @@ urlpatterns += patterns('txts.views',
 
 urlpatterns += patterns('',
     (r'^$', 'django.views.generic.list_detail.object_list', {
-        'queryset': Txt.public.all().filter(section__easylink='blog'
+        'queryset': Txt.public.all().filter(section__easyname='blog'
             ).order_by('-pub_date')[:1],
         'template_name': 'txts/home_list.html',
     } ),

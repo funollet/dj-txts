@@ -88,7 +88,7 @@ class TxtSection (models.Model):
         help_text = _('Categories will be sorted by this field.')
     )
     
-    easylink = models.SlugField (_('easylink'),
+    easyname = models.SlugField (_('easyname'),
         unique=True,
         prepopulate_from=('name',),
         help_text = _('Easy-to-link name (good, if short, twice good).'),
@@ -108,7 +108,7 @@ class TxtSection (models.Model):
         fields = (
             (None, {'fields': ('name', 'description_markup', 'priority',),}),
             (_('Advanced'), {
-                'fields': ('easylink', 'pub_date',), 
+                'fields': ('easyname', 'pub_date',), 
                 'classes': 'collapse',
             } ),
         )
@@ -168,7 +168,7 @@ class Txt (models.Model):
     pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
     modif_date = models.DateTimeField (_('modification date'), default=datetime.now, editable=False)
     crea_date = models.DateTimeField (_('creation date'), editable=False,)
-    easylink = models.SlugField (_('easylink'),
+    easyname = models.SlugField (_('easyname'),
         prepopulate_from = ('name',),
         unique = True,
         help_text = _('Easy-to-link name (good, if short, twice good).'),
@@ -199,7 +199,7 @@ class Txt (models.Model):
             (_('Abstract'), {'fields': ('abstract_markup',),
                 'classes': 'collapse',}),
             (None, {'fields': ('status',), }),
-            (_('Advanced'), {'fields': ('easylink', 'pub_date', 'author_name', 'comments_closed',),
+            (_('Advanced'), {'fields': ('easyname', 'pub_date', 'author_name', 'comments_closed',),
                 'classes': 'collapse',}),
         )
 

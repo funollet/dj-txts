@@ -1,14 +1,14 @@
 * 'update_photoplanet.py' not working on TextDrive
 
+* TxtCategory has field 'easylink'; must be 'easyname'!!!
 * Tags: migrate Txts to django-tags application
   * terraquis: script to migrate actual content (tags -> tagging)
-* (Txts) add categories ???
 * uecweb: deploy Txts
 * uecweb: deploy with mysql/postgres
 * test with django-trunk post unicode-branch
   * uecweb @ textdrive: solves the fcgi bug?
 
-
+* 500.html doesn't loads CSS
 * remove #photo23-content from CSS and 'home_list.html'
 * build menus application (uecweb needs it); some lieder apps can be used
 * build/choose media uploading application
