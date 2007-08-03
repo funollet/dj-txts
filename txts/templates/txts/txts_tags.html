@@ -1,0 +1,6 @@
+{% load tagging_tags %}
+
+{% tags_for_object object as tag_list %}
+{% if tag_list %}|| tags:
+    {% for tag in tag_list %}<a href="/tag/{{ tag }}">{{ tag }}</a> {% endfor %}
+{% endif %}
