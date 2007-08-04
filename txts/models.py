@@ -184,8 +184,8 @@ class Txt (models.Model):
     class Meta:
         verbose_name = _('txt')
         verbose_name_plural = _('txts')
-        order_with_respect_to = 'section'
-        ordering = ['pub_date']
+        ordering = ['-pub_date']
+        get_latest_by = 'pub_date'
 
     class Admin:
         list_display = ('name', 'section', 'pub_date',)
