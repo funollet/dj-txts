@@ -1,5 +1,3 @@
-* 'update_photoplanet.py' not working on TextDrive
-
 * uecweb: ??? deploy with mysql/postgres
 * test with django-trunk post unicode-branch
   * uecweb @ textdrive: solves the fcgi bug?
