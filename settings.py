@@ -73,7 +73,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'events.event': lambda o: u'/events/%s/%s/' % (o.startdate.strftime(u'%Y/%m/%d').lower(), o.id) ,
+    'events.event': lambda o: u'/events/%s/%s/' % (o.startdate.strftime('%Y/%m/%d').lower(), o.id) ,
     'txts.txt': lambda o: u'/%s/%s/' % (o.section.easyname, o.easyname),
 }
 
