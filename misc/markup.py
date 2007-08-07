@@ -40,7 +40,7 @@ Optional settings
         Default: {}
 """
 
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from docutils import writers
 from docutils.writers import html4css1
@@ -103,7 +103,7 @@ class DjangoHTMLTranslator(html4css1.HTMLTranslator):
         # thinks otherwise.
         idx = 0
         for node in self.colspecs:
-            self.body.append(self.starttag(node, 'col', CLASS='col-%s' % idx))
+            self.body.append(self.starttag(node, 'col', CLASS=u'col-%s' % idx))
             idx += 1 
         self.colspecs = []
 
