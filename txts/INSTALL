@@ -1,0 +1,46 @@
+
+Dependencies
+============
+
+Required applications:
+
+* django-tagging
+* misc
+
+Having preview
+==============
+
+Remember to copy those files:
+
+..
+    
+    media/js/jquery.pack.js
+    media/js/form.js
+    media/js/djadmin-preview.js 
+    media/css/djadmin-preview.css
+
+
+Configure your 'settings.py'
+============================
+
+..
+
+    INSTALLED_APPS = (
+        'misc',
+        'txts',
+    )
+    
+    ABSOLUTE_URL_OVERRIDES = {
+        'txts.txt': lambda o: u'/%s/%s/' % (o.section.easyname, o.easyname),
+    }
+
+Configure 'urls.py'
+===================
+
+..
+    
+    urlpatterns = patterns('',
+        (r'^preview/', 'misc.views.parse_markup_fields'),
+        (r'^', include('txts.urls')),
+    )
+
