@@ -42,7 +42,7 @@ def section_filter (func):
                 # Use a custom template name for this section.
                 app_label = k['queryset'].model._meta.app_label
                 suffix = template_view_suffix[func.__name__]
-                k['template_name'] = '%s/%s_%s.html' % (app_label, k['section'], suffix)
+                k['template_name'] = u'%s/%s_%s.html' % (app_label, k['section'], suffix)
             
             # Generic views doesn't expect a 'section' argument.
             del k['section']

@@ -60,7 +60,7 @@ class TxtCategory (models.Model):
         #list_display = ('name', 'priority',)
 
     
-    def __str__ (self):
+    def __unicode__ (self):
         return self.name
 
     def save (self):
@@ -113,7 +113,7 @@ class TxtSection (models.Model):
         )
 
     
-    def __str__ (self):
+    def __unicode__ (self):
         return self.name
 
     def save (self):
@@ -213,7 +213,7 @@ class Txt (models.Model):
             self.crea_date = datetime.now()
         super(Txt, self).save()
 
-    def __str__ (self):
+    def __unicode__ (self):
         return self.name
 
     def get_absolute_url(self):
