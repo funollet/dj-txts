@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from django.db import models
+from django.db import models, connection
 from misc.markup import markup_help, parse_markup
 from tagging.fields import TagField
 from datetime import datetime
@@ -18,6 +18,16 @@ STATUS_CHOICES = (
 
 class TxtCategory (models.Model):
 
+    def priority_default (increment=10):
+        """Returns next suitable value for 'priority' field."""
+        cursor = connection.cursor()
+        cursor.execute("SELECT MAX(priority) FROM txts_txtcategory ;")
+        row = cursor.fetchone()
+        try:
+            return row[0] + increment
+        except:
+            return increment
+    
     name = models.CharField (_('name'), maxlength=200, )
     
     description= models.TextField (_('description'), editable=False,)
@@ -28,7 +38,8 @@ class TxtCategory (models.Model):
     
     priority = models.PositiveIntegerField (_('priority'),
         unique = True,
-        help_text = _('Categories will be sorted by this field.')
+        help_text = _('Categories will be sorted by this field.'),
+        default = priority_default,
     )
     
     easyname = models.SlugField (_('easyname'),
