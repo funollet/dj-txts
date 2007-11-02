@@ -12,18 +12,18 @@ function append_to_preview (xml) {
 }
 
 function show_preview () {
-    var abstract_markup = $("[@name=abstract_markup]").val()
-    var body_markup = $("[@name=body_markup]").val()
+    var abstract = $("[@name=abstract]").val()
+    var body = $("[@name=body]").val()
     
     $("#preview-content").html('')
     $("#preview").show("slow")
     
-    if (abstract_markup.length != 0) {
+    if (abstract.length != 0) {
         $.post("/preview/", {"markup": '``------abstract--------------``'}, append_to_preview)
-        $.post("/preview/", {"markup": abstract_markup}, append_to_preview)
+        $.post("/preview/", {"markup": abstract}, append_to_preview)
         $.post("/preview/", {"markup": '``------end of abstract-------``'}, append_to_preview)
     }
-    $.post("/preview/", {"markup": body_markup}, append_to_preview)
+    $.post("/preview/", {"markup": body}, append_to_preview)
     return false
 }
 

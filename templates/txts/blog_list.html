@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block content %}
 
 {% for entry in object_list %}
     <div class="blog-list-entry">
     <h1>{{ entry.name }}</h1>
-    {{ entry.body }}
+    {{ entry.body|markdown }}
     <ul>
         <li>{{ entry.pub_date }}</li>
         <li>{{ entry.easyname }}</li>

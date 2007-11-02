@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block content %}
 <h1>{{ object.name }}</h1>
 
-{{ object.body }}
+{{ object.body|markdown }}
 
 <ul>
     <li>{{ object.pub_date }}</li>

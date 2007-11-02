@@ -30,10 +30,9 @@ class TxtCategory (models.Model):
     
     name = models.CharField (_('name'), maxlength=200, )
     
-    description= models.TextField (_('description'), editable=False,)
-    description_markup = models.TextField (_('description'), 
+    description= models.TextField (_('description'),
         blank=True,
-        help_text = markup_help['docutils'],
+        help_text = markup_help['markdown'],
     )
     
     priority = models.PositiveIntegerField (_('priority'),
@@ -60,37 +59,24 @@ class TxtCategory (models.Model):
         verbose_name = _('txt category')
         verbose_name_plural = _('txt categories')
         ordering = ['priority']
-    #class Admin:
-        #fields = (
-            #(None, {'fields': ('name', 'description_markup', 'priority',),}),
-            #(_('Advanced'), {
-                #'fields': ('easyname', 'pub_date', 'hidden'), 
-                #'classes': 'collapse',
-            #} ),
-        #)
-        #list_display = ('name', 'priority',)
 
     
     def __unicode__ (self):
         return self.name
 
     def save (self):
-        parse_markup (self)
         if not self.id:
             self.crea_date = datetime.now()
         super(LinkCategory, self).save()
 
-    #def get_absolute_url (self):
-        #pass
 
 
 class TxtSection (models.Model):
     name = models.CharField (_('name'), maxlength=200, )
     
-    description= models.TextField (_('description'), editable=False,)
-    description_markup = models.TextField (_('description'), 
+    description= models.TextField (_('description'),
         blank=True,
-        help_text = markup_help['docutils'],
+        help_text = markup_help['markdown'],
     )
     
     priority = models.PositiveIntegerField (_('priority'),
@@ -116,7 +102,7 @@ class TxtSection (models.Model):
     class Admin:
         list_display = ['name', 'priority']
         fields = (
-            (None, {'fields': ('name', 'description_markup', 'priority',),}),
+            (None, {'fields': ('name', 'description', 'priority',),}),
             (_('Advanced'), {
                 'fields': ('easyname', 'pub_date',), 
                 'classes': 'collapse',
@@ -128,7 +114,6 @@ class TxtSection (models.Model):
         return self.name
 
     def save (self):
-        parse_markup (self)
         if not self.id:
             self.crea_date = datetime.now()
         super(TxtSection, self).save()
@@ -154,26 +139,19 @@ class Txt (models.Model):
     section = models.ForeignKey( TxtSection,
         verbose_name=_('section'),
     )
-    
     category = models.ForeignKey( TxtCategory,
         verbose_name=_('category'),
         blank = True, null=True,
     )
-    
     name = models.CharField (_('name'), maxlength=200, )
-
-    abstract = models.TextField (_('abstract_html'), editable=False,)
-    abstract_markup = models.TextField (_('abstract'), 
+    abstract = models.TextField (_('abstract'),
         blank = True,
-        help_text = markup_help['docutils'],
+        help_text = markup_help['markdown'],
     )
-    
-    body = models.TextField (_('body_html'), editable=False,)
-    body_markup = models.TextField (_('body'), 
+    body = models.TextField (_('body'),
         blank = True,
-        help_text = markup_help['docutils'],
+        help_text = markup_help['markdown'],
     )
-
     tags = TagField()
     pub_date = models.DateTimeField (_('publication date'), default=datetime.now,)
     modif_date = models.DateTimeField (_('modification date'), default=datetime.now, editable=False)
@@ -205,8 +183,8 @@ class Txt (models.Model):
         ordering = ['-pub_date']
         fields = (
             (None, {'fields': (('name', 'section',),
-                'body_markup', 'tags',),}),
-            (_('Abstract'), {'fields': ('abstract_markup',),
+                'body', 'tags',),}),
+            (_('Abstract'), {'fields': ('abstract',),
                 'classes': 'collapse',}),
             (None, {'fields': ('status',), }),
             (_('Advanced'), {'fields': ('easyname', 'pub_date', 'author_name', 'comments_closed',),
@@ -219,7 +197,6 @@ class Txt (models.Model):
     
     
     def save (self):
-        parse_markup (self)
         if not self.id:
             self.crea_date = datetime.now()
         super(Txt, self).save()
