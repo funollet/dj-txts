@@ -28,9 +28,7 @@ urlpatterns += patterns('txts.views',
 )
 
 urlpatterns += patterns('',
-    (r'^$', 'django.views.generic.list_detail.object_list',
-        dict( queryset=Txt.public.filter(section__easyname='blog')[:1],
-            template_name='txts/home_list.html', ),
+    (r'^$', 'django.views.generic.simple.direct_to_template',
+        dict( template='txts/home_list.html' ),
     ),
-    #(r'^$', 'django.views.generic.simple.redirect_to', {'url': '/blog/'}),
 )
