@@ -26,9 +26,3 @@ urlpatterns += patterns('txts.views',
             slug_field='easyname', ),
     ),
 )
-
-urlpatterns += patterns('',
-    (r'^$', 'django.views.generic.simple.direct_to_template',
-        dict( template='txts/home_list.html' ),
-    ),
-)
