@@ -40,7 +40,10 @@ def section_aware (func):
                 app_label = k['queryset'].model._meta.app_label
                 
                 k['template_name'] = u'%s/%s_%s.html' % (app_label, k['section'], suffix)
-            
+                
+                # Put section name on the template context.
+                k['extra_context'] = { 'txts_section': k['section'] }
+                
             # Generic views doesn't expect a 'section' argument.
             del k['section']
 
