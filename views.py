@@ -10,6 +10,9 @@ will be overwriten with '<app_label>/<section_name>_xxx.html' instead of '<app_l
 
 from django.views.generic import date_based, list_detail
 from django.conf import settings
+from django.contrib.auth.decorators import user_passes_test
+from django.http import HttpResponse
+import markdown
 
 # Map wrapped function name to suffix that should be used
 # for template name.
@@ -100,3 +103,13 @@ def date_based_archive_today (request, **kwargs):
 def date_based_object_detail (request, **kwargs):
     """Wrapped generic view, per-section customization."""
     return date_based.object_detail (request, **kwargs)
+
+
+
+@user_passes_test(lambda u: u.is_staff)
+def preview (request):
+    """Parses the value of the 'markup' field (POST).
+    """
+    
+    html = markdown.markdown ( request.POST['markup'] )
+    return HttpResponse (html)

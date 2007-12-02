@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 from django.db import models, connection
-from misc.markup import markup_help, parse_markup
 from tagging.fields import TagField
 from datetime import datetime
 
@@ -15,6 +14,25 @@ STATUS_CHOICES = (
     )
 
 ################################################################################
+
+markup_help = {
+    'markdown': _('''<div class="markup_help"><pre>
+[un link][1]    *italica*    **negreta**    Titol     - un punt d'una llista
+                                            -----     - segon punt
+[1]: http://www.un.link.com                            - llista indentada
+</pre>(<a href="http://daringfireball.net/projects/markdown/basics">Markdown syntax)</a></div>'''),
+    'textile':  _('''<div class="markup_help">
+    Use <a href="http://daringfireball.net/projects/markdown/basics">Textile</a> Syntax</div>'''),
+    'docutils': _('''
+    <div class="markup_help"><pre>
+`un link`_    *italica*    **negreta**    Titol     - un punt d'una llista
+                                          -----     - segon punt
+.. _`un link`: http://www.google.com                 - llista indentada
+</pre>(<a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">reST syntax</a>: documentation).
+    </div>'''),
+}
+
+
 
 class TxtCategory (models.Model):
 

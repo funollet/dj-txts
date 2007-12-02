@@ -12,8 +12,6 @@ Having preview
 
 Remember to copy those files:
 
-..
-    
     media/js/jquery.pack.js
     media/js/form.js
     media/js/djadmin-preview.js 
@@ -22,11 +20,8 @@ Remember to copy those files:
 
 Configure your 'settings.py'
 ============================
-
-..
-
+    
     INSTALLED_APPS = (
-        'misc',
         'txts',
     )
     
@@ -37,10 +32,7 @@ Configure your 'settings.py'
 Configure 'urls.py'
 ===================
 
-..
-    
     urlpatterns = patterns('',
-        (r'^preview/', 'misc.views.parse_markup_fields'),
         (r'^', include('txts.urls')),
     )
 

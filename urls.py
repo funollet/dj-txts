@@ -11,7 +11,7 @@ urlpatterns += patterns('',
     )
 )
 urlpatterns += patterns('txts.views',
-    (r'^txt-preview/$', 'preview',),
+    (r'^preview/$', 'preview',),
     #
     (r'^(?P<section>[\-\w]+)/$', 'list_detail_object_list',
         dict( queryset=Txt.public.all(), ),
