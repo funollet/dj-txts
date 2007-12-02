@@ -1,0 +1,9 @@
+{% extends "txts/txt_list.html" %}
+{% load comments.comments %}
+
+    {% block comments %}
+    <div class="comments">
+        {% get_free_comment_count for txts.txt object.id as comment_list %}
+        <a href="{{ object.get_absolute_url }}">#comentaris: {{ comment_list }}</a>
+    </div>
+    {% endblock %}

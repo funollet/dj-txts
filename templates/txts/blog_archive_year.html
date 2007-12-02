@@ -1,0 +1,12 @@
+{% extends "txts/txt_list.html" %}
+
+{% block content %}
+<div class="article">
+    <ul>
+    {% for date in date_list %}
+        <li><h2 class="title"><a href="/{{ txts_section }}/{{ year }}/{{ date.month }}/">{{ date.month }}/{{ year }}</a></h2></li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
