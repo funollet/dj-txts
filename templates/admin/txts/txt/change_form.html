@@ -19,11 +19,11 @@ function show_preview () {
     $("#preview").show("slow")
     
     if (abstract.length != 0) {
-        $.post("/preview/", {"markup": '``------abstract--------------``'}, append_to_preview)
-        $.post("/preview/", {"markup": abstract}, append_to_preview)
-        $.post("/preview/", {"markup": '``------end of abstract-------``'}, append_to_preview)
+        $.post("/txts/preview/", {"markup": '``------abstract--------------``'}, append_to_preview)
+        $.post("/txts/preview/", {"markup": abstract}, append_to_preview)
+        $.post("/txts/preview/", {"markup": '``------end of abstract-------``'}, append_to_preview)
     }
-    $.post("/preview/", {"markup": body}, append_to_preview)
+    $.post("/txts/preview/", {"markup": body}, append_to_preview)
     return false
 }
 
