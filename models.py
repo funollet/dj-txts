@@ -2,6 +2,7 @@
 from django.db import models, connection
 from tagging.fields import TagField
 from datetime import datetime
+from django.utils.translation import ugettext as _
 
 
 ################################################################################
@@ -46,7 +47,7 @@ class TxtCategory (models.Model):
         except:
             return increment
     
-    name = models.CharField (_('name'), maxlength=200, )
+    name = models.CharField (_('name'), max_length=200, )
     
     description= models.TextField (_('description'),
         blank=True,
@@ -90,7 +91,7 @@ class TxtCategory (models.Model):
 
 
 class TxtSection (models.Model):
-    name = models.CharField (_('name'), maxlength=200, )
+    name = models.CharField (_('name'), max_length=200, )
     
     description= models.TextField (_('description'),
         blank=True,
@@ -149,7 +150,7 @@ class PublicManager (models.Manager):
 
 class Txt (models.Model):
 
-    status = models.CharField (_('status'), maxlength=3, 
+    status = models.CharField (_('status'), max_length=3, 
         choices=STATUS_CHOICES,
         default='pbl',
         radio_admin=True,
@@ -161,7 +162,7 @@ class Txt (models.Model):
         verbose_name=_('category'),
         blank = True, null=True,
     )
-    name = models.CharField (_('name'), maxlength=200, )
+    name = models.CharField (_('name'), max_length=200, )
     abstract = models.TextField (_('abstract'),
         blank = True,
         help_text = markup_help['markdown'],
@@ -181,7 +182,7 @@ class Txt (models.Model):
     )
     author_name = models.CharField ( _("Author's name"), 
         blank=True,
-        maxlength=75,
+        max_length=75,
     )
     comments_closed = models.BooleanField ( _('Comments closed'),
         default = False,
