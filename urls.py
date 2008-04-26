@@ -13,7 +13,7 @@ date_based_params = {
 urlpatterns = []
 urlpatterns += patterns('',
     (r'^tag/(?P<tag>[^/]+(?u))/$', 'tagging.views.tagged_object_list', 
-        dict( model=Txt, allow_empty=True, template_name='txts/tag_list.html', ),
+        dict( queryset_or_model=Txt, allow_empty=True, template_name='txts/tag_list.html', ),
     )
 )
 
