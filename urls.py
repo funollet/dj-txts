@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.conf.urls.defaults import *
-from txts.models import Txt, TxtSection
+from django.conf.urls.defaults import patterns
+from txts.models import Txt
 
 
 date_based_params = {
@@ -19,7 +19,8 @@ urlpatterns += patterns('',
 
 
 urlpatterns += patterns('txts.views',
-    (r'^preview/$', 'preview',),
+    (r'^preview/$', 'preview',),        # works if dj-txts URL is  / 
+    (r'^txts/preview/$', 'preview',),   # works if dj-txts URL is  /txts/
     #
     # Date-based archives.
     (r'^(?P<section>[\-\w]+)/(?P<year>\d{4})/$',
